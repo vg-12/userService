@@ -1,5 +1,6 @@
 package com.userService.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.userService.dtos.*;
 import com.userService.models.Token;
 import com.userService.models.User;
@@ -24,7 +25,7 @@ public class UserController {
        return responseDto;
     }
     @PostMapping("/signup")
-    public UserDto signup(@RequestBody SignUpRequestDto requestDto){
+    public UserDto signup(@RequestBody SignUpRequestDto requestDto) throws JsonProcessingException {
        User user=userService.signUp(requestDto.getName(), requestDto.getEmail(), requestDto.getPassword());
        //convert user to userDto
        return UserDto.from(user);
