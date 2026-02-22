@@ -48,4 +48,10 @@ public class UserController {
         }
         return responseEntity;
     }
+
+//    just to check if the request is coming from product service or not
+    @GetMapping("/sample")
+    public void sampleAPI(){
+        System.out.println("got a request in sample api");
+    }
 }
